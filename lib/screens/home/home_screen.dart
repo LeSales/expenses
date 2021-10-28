@@ -1,5 +1,7 @@
 import 'package:expenses/models/transactions.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/painting.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -47,8 +49,40 @@ class HomePage extends StatelessWidget {
           Column(
             children: _transactions.map((tr) {
               return Card(
-                child: Text(tr.title),
-              );
+                  child: Row(
+                children: [
+                  Container(
+                    margin: const EdgeInsets.symmetric(
+                        horizontal: 15, vertical: 10),
+                    decoration: BoxDecoration(
+                        border: Border.all(color: Colors.purple, width: 2)),
+                    padding: const EdgeInsets.all(10),
+                    child: Text(
+                      tr.value.toString(),
+                      style: const TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20,
+                        color: Colors.purple,
+                      ),
+                    ),
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        tr.title,
+                        textAlign: TextAlign.start,
+                        style: const TextStyle(
+                            fontSize: 16, fontWeight: FontWeight.bold),
+                      ),
+                      Text(
+                        tr.date.toString(),
+                        style: const TextStyle(color: Colors.grey),
+                      )
+                    ],
+                  )
+                ],
+              ));
             }).toList(),
           )
         ],
