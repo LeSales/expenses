@@ -2,6 +2,7 @@ import 'package:expenses/models/transactions.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
+import 'package:intl/intl.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -58,7 +59,7 @@ class HomePage extends StatelessWidget {
                         border: Border.all(color: Colors.purple, width: 2)),
                     padding: const EdgeInsets.all(10),
                     child: Text(
-                      tr.value.toString(),
+                      'R\$ ${tr.value.toStringAsFixed(2)}',
                       style: const TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 20,
@@ -76,7 +77,7 @@ class HomePage extends StatelessWidget {
                             fontSize: 16, fontWeight: FontWeight.bold),
                       ),
                       Text(
-                        tr.date.toString(),
+                        DateFormat('d MMM y').format(tr.date),
                         style: const TextStyle(color: Colors.grey),
                       )
                     ],
