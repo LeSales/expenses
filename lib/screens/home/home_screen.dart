@@ -16,7 +16,7 @@ class HomePage extends StatelessWidget {
         value: 100.50,
         date: DateTime.now(),
       ),
-      Transaction(
+      /* Transaction(
         id: 't2',
         title: 'Calção de banho',
         value: 30.50,
@@ -33,14 +33,13 @@ class HomePage extends StatelessWidget {
         title: 'Cinema',
         value: 56.30,
         date: DateTime.now(),
-      ),
+      ), */
     ];
     return Scaffold(
       appBar: AppBar(
         title: const Text('Despesas'),
       ),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
           const Card(
@@ -85,7 +84,46 @@ class HomePage extends StatelessWidget {
                 ],
               ));
             }).toList(),
-          )
+          ),
+          Card(
+              elevation: 5,
+              child: Padding(
+                padding: const EdgeInsets.all(10),
+                child: Column(
+                  children: [
+                    const TextField(
+                      decoration: InputDecoration(
+                        labelText: 'Título',
+                      ),
+                    ),
+                    const TextField(
+                        decoration: InputDecoration(
+                      labelText: 'Valor (R\$)',
+                    )),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(5),
+                            color: Colors.purple,
+                          ),
+                          height: 40,
+                          child: TextButton(
+                              onPressed: () {},
+                              child: const Text(
+                                'Nova Transação',
+                                style: TextStyle(color: Colors.white),
+                              )),
+                        ),
+                      ],
+                    )
+                  ],
+                ),
+              ))
         ],
       ),
     );
