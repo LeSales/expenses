@@ -5,7 +5,10 @@ import 'package:flutter/painting.dart';
 import 'package:intl/intl.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
+  HomePage({Key? key}) : super(key: key);
+
+  final titleController = TextEditingController();
+  final valueController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -91,15 +94,17 @@ class HomePage extends StatelessWidget {
                 padding: const EdgeInsets.all(10),
                 child: Column(
                   children: [
-                    const TextField(
-                      decoration: InputDecoration(
+                    TextField(
+                      controller: titleController,
+                      decoration: const InputDecoration(
                         labelText: 'Título',
                       ),
                     ),
-                    const TextField(
-                        decoration: InputDecoration(
-                      labelText: 'Valor (R\$)',
-                    )),
+                    TextField(
+                        controller: valueController,
+                        decoration: const InputDecoration(
+                          labelText: 'Valor (R\$)',
+                        )),
                     const SizedBox(
                       height: 10,
                     ),
