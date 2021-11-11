@@ -118,7 +118,10 @@ class HomePage extends StatelessWidget {
                           ),
                           height: 40,
                           child: TextButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                print(titleController.text);
+                                print(valueController.text);
+                              },
                               child: const Text(
                                 'Nova Transação',
                                 style: TextStyle(color: Colors.white),
