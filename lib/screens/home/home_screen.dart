@@ -1,15 +1,11 @@
+import 'package:expenses/components/transaction_form.dart';
 import 'package:expenses/components/transaction_list.dart';
 import 'package:expenses/models/transactions.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/painting.dart';
-import 'package:intl/intl.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({Key? key}) : super(key: key);
-
-  final titleController = TextEditingController();
-  final valueController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -53,50 +49,7 @@ class HomePage extends StatelessWidget {
           TransactionList(
             transactions: _transactions,
           ),
-          Card(
-              elevation: 5,
-              child: Padding(
-                padding: const EdgeInsets.all(10),
-                child: Column(
-                  children: [
-                    TextField(
-                      controller: titleController,
-                      decoration: const InputDecoration(
-                        labelText: 'Título',
-                      ),
-                    ),
-                    TextField(
-                        controller: valueController,
-                        decoration: const InputDecoration(
-                          labelText: 'Valor (R\$)',
-                        )),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(5),
-                            color: Colors.purple,
-                          ),
-                          height: 40,
-                          child: TextButton(
-                              onPressed: () {
-                                print(titleController.text);
-                                print(valueController.text);
-                              },
-                              child: const Text(
-                                'Nova Transação',
-                                style: TextStyle(color: Colors.white),
-                              )),
-                        ),
-                      ],
-                    )
-                  ],
-                ),
-              ))
+          TransactionForm(),
         ],
       ),
     );
